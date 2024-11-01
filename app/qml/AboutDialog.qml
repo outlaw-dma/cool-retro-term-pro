@@ -17,18 +17,41 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *******************************************************************************/
-import QtQuick 2.2
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.1
-import QtQuick.Window 2.0
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Window 2.15
 
-Window {
+ApplicationWindow {
     id: dialogwindow
     title: qsTr("About")
     width: 600
     height: 400
 
+    visible: true
     modality: Qt.ApplicationModal
+
+    Component.onCompleted: {
+        // Set the Fusion style
+        QtQuick.Controls.ApplicationWindow.style = "Fusion"
+
+        // Apply dark palette
+        Qt.application.palette = QtQuick.Controls.Palette {
+            window: "#353535"
+            windowText: "white"
+            base: "#2A2A2A"
+            alternateBase: "#424242"
+            toolTipBase: "white"
+            toolTipText: "white"
+            text: "white"
+            button: "#353535"
+            buttonText: "white"
+            brightText: "red"
+            link: "#2A82DA"
+            highlight: "#2A82DA"
+            highlightedText: "black"
+        }
+    }
 
     ColumnLayout {
         anchors.fill: parent
