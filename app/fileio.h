@@ -11,7 +11,7 @@ class FileIO : public QObject
     Q_OBJECT
 
 public:
-    FileIO();
+    explicit FileIO(QObject *parent = nullptr);
 
 public slots:
     bool write(const QString& sourceUrl, const QString& data);
